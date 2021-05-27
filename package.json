@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "start:shadow-traffic-disabled": "SHADOW_TRAFFIC_ENABLED=false ts-node ./src/index.ts",
-    "start:shadow-traffic-enabled": "SHADOW_TRAFFIC_ENABLED=true ts-node ./src/index.ts"
+    "start": "SHADOW_TRAFFIC_ENABLED=true CANARY_THRESHOLD_PERCENT=50 ts-node ./src/index.ts"
   },
   "repository": {
     "type": "git",

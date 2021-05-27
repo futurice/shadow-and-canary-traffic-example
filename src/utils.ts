@@ -39,3 +39,8 @@ export const getAnimalWithDelay = (
       );
     }, delayMs),
   );
+
+/**
+ * Get a random value between 0-99.
+ */
+export const randomThresholdValue = () => Math.floor(Math.random() * 100);
