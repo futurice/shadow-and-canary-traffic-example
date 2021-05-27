@@ -14,9 +14,8 @@ const app = express();
  */
 const animal = z.union([z.literal('cat'), z.literal('dog')]);
 
-const requestSchema = z
+const requestQuerySchema = z
   .object({
-    foo: z.union([z.literal('bar'), z.literal('baz')]),
     animal,
   })
   .strict();
@@ -25,7 +24,7 @@ const requestSchema = z
  * ...and infer the static types based on those
  */
 export type TAnimal = z.infer<typeof animal>;
-export type TRequest = z.infer<typeof requestSchema>;
+export type TRequest = z.infer<typeof requestQuerySchema>;
 
 /**
  * Handle requests coming in to path /some-data
@@ -33,7 +32,7 @@ export type TRequest = z.infer<typeof requestSchema>;
 app.get('/some-data', async (req, res) => {
   try {
     // Here we validate the query params and throw if they don't match
-    const parsedQuery = requestSchema.parse(req.query);
+    const parsedQuery = requestQuerySchema.parse(req.query);
 
     // Each incoming request is given a unique ID to help performance logging
     const requestId = uuid();

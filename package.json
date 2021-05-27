@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/index.ts"
+    "tsc": "tsc",
+    "start:shadow-traffic-disabled": "SHADOW_TRAFFIC_ENABLED=false ts-node ./src/index.ts",
+    "start:shadow-traffic-enabled": "SHADOW_TRAFFIC_ENABLED=true ts-node ./src/index.ts"
   },
   "repository": {
     "type": "git",
