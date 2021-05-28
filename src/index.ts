@@ -15,7 +15,7 @@ const app = express();
 /**
  * We want to explicitly define what kind of queries we accept...
  */
-const animal = z.union([z.literal('cat'), z.literal('dog')]);
+export const animal = z.union([z.literal('cat'), z.literal('dog')]);
 const trafficStrategy = z.union([z.literal('shadow'), z.literal('canary')]);
 
 const requestQuerySchema = z

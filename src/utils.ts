@@ -1,6 +1,6 @@
 import { performance } from 'perf_hooks';
 import { TAnimal } from './index';
-import { TDataApiData } from './integrationClients/types';
+import { dataApiData, TDataApiData } from './integrationClients/types';
 
 /**
  * Use performance.now() to create timestamps that can be used
@@ -28,15 +28,12 @@ export const getAnimalWithDelay = (
   animal: TAnimal,
   dataSource: TDataApiData[],
 ): Promise<TDataApiData> =>
-  new Promise(resolve =>
+  new Promise((resolve, reject) =>
     setTimeout(() => {
-      // Normally this kind of type casting isn't safe, but for the sake of
-      // our example it will do. In the wild you would rather go with something
-      // along the lines of "parse, don't validate", such as we do at the HTTP
-      // layer with Zod.
-      resolve(
-        dataSource.find(d => d.species === animal) as unknown as TDataApiData,
-      );
+      dataApiData
+        .parseAsync(dataSource.find(d => d.species === animal))
+        .then(data => resolve(data))
+        .catch(err => reject(err));
     }, delayMs),
   );
 
