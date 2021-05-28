@@ -1,4 +1,4 @@
-# shadow-traffic-example
+# shadow-and-canary-traffic-example
 
 _This is the accompanying example project for a Futurice blog post: (TODO:)_
 
