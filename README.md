@@ -1,6 +1,6 @@
 # shadow-and-canary-traffic-example
 
-_This is the accompanying example project for a Futurice blog post: (TODO:)_
+_This is the accompanying example project for a Futurice blog post: https://futurice.com/blog/case-study-how-to-test-a-service-under-production-load-before-going-to_
 
 The point is to demonstrate two concepts in Nodejs: shadow traffic and canary traffic.
 
